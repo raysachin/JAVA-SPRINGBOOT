@@ -15,7 +15,7 @@ class Node{
 	}
 
 	public void setData(int data) {
-		this.data = data;
+		this.data = data; 
 	}
 
 	public Node getNext() {
@@ -44,7 +44,6 @@ class LinkedList{
 	}
 	
 	// ADD ELEMENTS AT THE END OF THE LINKED LIST
-	
 	public void addElementAtTail(int data) {
 		// CREATE A NODE
 		Node node = new Node(data);
@@ -61,12 +60,30 @@ class LinkedList{
 		}
 	}
 	
+	
+	
+	// ADD ELEMENTS AT THE BEGINIING OF THE LINKED LIST
+	public void addElementAtHead(int data) {
+		// CREATE A NODE
+		Node node = new Node(data);
+		
+		// IF LINKED LIST IS EMPTY
+		if(this.head == null) {
+			this.head = node;
+			this.tail = node;
+		}
+		else {
+			node.setNext(head);
+			this.head = node;
+		}
+	}
+	
 	// DISPLAY OF LINKED LIST
 	public void display() {
 		Node temp = head;
 		
 		while(temp != null) {
-			System.out.print(temp.getData() + " --> ");
+			System.out.print(temp.getData() + " -- > ");
 			temp = temp.getNext();
 			
 		}
@@ -90,7 +107,25 @@ public class AddElementIntoLinkedListAtTail {
 	        
 	        list.addElementAtTail(randomInt);
 	        
-	        System.out.println("Linnked List After adding " + randomInt + " :" );
+	        System.out.println("Linnked List After adding at tail " + randomInt + " :" );
+	        
+	        list.display();
+	        System.out.println();
+	        
+		}
+		
+		System.out.println();
+		
+		
+		for(int i = 0; i < 7; i++) {
+			Random rand = new Random();
+
+	        int randomInt = rand.nextInt(100);
+	        
+	        
+	        list.addElementAtHead(randomInt);
+	        
+	        System.out.println("Linnked List After adding at head " + randomInt + " :" );
 	        
 	        list.display();
 	        System.out.println();
